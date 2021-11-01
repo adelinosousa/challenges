@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    @using (Ajax.BeginForm("FindMatches", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "textMatchResults", InsertionMode = InsertionMode.Replace }))
+    {
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="text">Text</label>
+            <div class="col-sm-8">
+                @Html.TextArea("text", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="text">Subtext</label>
+            <div class="col-sm-8">
+                @Html.TextBox("subtext", null, new { @class = "form-control" })
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Match</button>
+    }
+    <div id="textMatchResults"></div>
+</div>
