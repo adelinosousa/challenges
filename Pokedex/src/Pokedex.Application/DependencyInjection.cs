@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Pokedex.Application.Common.Factories.Translate;
 using Pokedex.Application.Common.Interfaces;
+using Pokedex.Application.Common.Services;
 using System.Reflection;
 
 namespace Pokedex.Application
@@ -14,6 +15,7 @@ namespace Pokedex.Application
             services.AddHttpClient();
 
             services.AddScoped<ITranslateFactory, TranslateFactory>();
+            services.AddScoped<IPokemonTranslatorService, PokemonTranslatorService>();
 
             return services;
         }
